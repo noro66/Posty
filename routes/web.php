@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/posts', function (){
-   return view('posts.index');
-});
+Route::get('/posts', [PostsController::class, 'index'])->name('posts');
+Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
 Route::get('/home', function (){
    return view('home');
 })->name('home');

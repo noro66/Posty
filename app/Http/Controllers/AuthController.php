@@ -50,9 +50,9 @@ class AuthController extends Controller
             'email' => 'required|max:255',
             'password' => 'required'
         ]);
-        if(!auth()->attempt($request->only(['email', 'password']), $request->input(''))){
+        if(!auth()->attempt($request->only(['email', 'password']), $request->input('remember'))){
             return  back()->with('login_status', 'Invalid login details');
-        };
+        }
         session()->regenerate();
         return to_route('dashboard');
     }

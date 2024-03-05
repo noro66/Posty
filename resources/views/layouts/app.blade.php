@@ -21,7 +21,7 @@
                         <a href="" >Dashboard</a>
                     </li>
                     <li>
-                        <a href="/posts" >Posts</a>
+                        <a href="{{route('posts')}}" >Posts</a>
                     </li>
                 </ul>
 

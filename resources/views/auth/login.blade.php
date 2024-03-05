@@ -40,8 +40,8 @@
                                     @enderror
                                 </div>
                                 <div class="flex items-center h-5 space-x-2">
-                                    <input id="remember" aria-describedby="remember" type="checkbox" class="ml-1 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 white:bg-gray-700 white:border-gray-600 white:focus:ring-primary-600 white:ring-offset-gray-800" >
-                                    <label for="remember" class="font-light text-black white:text-gray-300">Remember me</label>
+                                    <input id="remember" name="remember" aria-describedby="remember" type="checkbox" class="ml-1 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 white:bg-gray-700 white:border-gray-600 white:focus:ring-primary-600 white:ring-offset-gray-800" >
+                                    <label for="remember"  class="font-light text-black white:text-gray-300">Remember me</label>
 
                                 </div>
                                 <button type="submit" class="w-full text-white bg-gray-900 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center white:bg-primary-600 white:hover:bg-primary-700 white:focus:ring-primary-800">Login</button>
