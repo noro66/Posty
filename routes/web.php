@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ Route::get('/posts', function (){
    return view('posts.index');
 });
 
+Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route::get('/register',[AuthController::class, 'registerIndex'])->name('register');
 Route::post('/register',[AuthController::class, 'registerStore'])->name('register.store');
 
