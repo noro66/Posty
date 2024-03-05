@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/posts', function (){
+   return view('posts.index');
+});
+
+Route::get('/register',[AuthController::class, 'registerIndex'])->name('register');
+Route::post('/register',[AuthController::class, 'registerStore'])->name('register.store');
 
 Route::get('/', function () {
     return view('welcome');
