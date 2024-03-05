@@ -26,12 +26,14 @@ class AuthController extends Controller
             'email' => 'required|max:255',
             'password' => 'required|confirmed'
         ]);
-        User::create([
+       $user = User::create([
             'name' => $request->input('name'),
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password'))
         ]);
+
+        auth()->attempt($request->only(['email', 'password']));
 
         return to_route('dashboard');
 
