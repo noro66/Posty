@@ -26,18 +26,24 @@
                 </ul>
 
                 <ul class="flex justify-between gap-6">
+                    @auth()
                     <li>
-                        <a href="" >Nouaamane Aitsfia</a>
+                        <a href="" >{{auth()->user()->username}}</a>
                     </li>
+                        <li>
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button type="submit" >Logout</button>
+                            </form>
+                        </li>
+                    @else
                     <li>
                         <a href="{{route('register')}}" >Register</a>
                     </li>
                     <li>
-                        <a href="" >Login</a>
+                        <a href="{{route('login')}}" >Login</a>
                     </li>
-                    <li>
-                        <a href="" >Logout</a>
-                    </li>
+                    @endauth
                 </ul>
             </nav>
 
