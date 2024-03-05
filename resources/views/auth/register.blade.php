@@ -15,35 +15,35 @@
                             <form class="space-y-4 md:space-y-6" method="post" action="{{route('register.store')}}">
                                 @csrf
                                 <div>
-                                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 white:text-white">Your Username</label>
-                                    <input type="text" name="username" id="Username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500" placeholder="Jon_Doe" >
+                                    <label for="#" class="block mb-2 text-sm font-medium text-gray-900 white:text-white">Your Username</label>
+                                    <input type="text" name="username" id="Username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500 @error('username')border border-red-500 @enderror " placeholder="Jon_Doe" >
                                         @error('username')
-                                    <div class="text-red-600 mt-2 bg-red-100 p-2 text-sm">
+                                    <li class="text-red-600 mt-1  p-2 text-sm">
                                         {{$message}}
-                                    </div>
+                                    </li>
                                         @enderror
                                 </div>
                                 <div>
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 white:text-white">Your email</label>
-                                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500" placeholder="name@company.com" >
+                                    <input  type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500 @error('email') border border-red-500 @enderror " placeholder="name@company.com" >
                                     @error('email')
-                                    <div class="text-red-600 mt-2 bg-red-100 p-2 text-sm">
+                                    <li class="text-red-600 mt-1  p-2 text-sm">
                                         {{$message}}
-                                    </div>
+                                    </li>
                                     @enderror
                                 </div>
                                 <div>
                                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 white:text-white">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500" >
+                                    <input   type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500 @error('password') border border-red-500 @enderror " >
                                     @error('password')
-                                    <div class="text-red-600 mt-2 bg-red-100 p-2 text-sm">
+                                    <li class="text-red-600 mt-1  p-2 text-sm">
                                         {{$message}}
-                                    </div>
+                                    </li>
                                     @enderror
                                 </div>
                                 <div>
                                     <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 white:text-white">Confirm password</label>
-                                    <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500" >
+                                    <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-blue-500 white:focus:border-blue-500 @error('password') border border-red-500 @enderror" >
                                 </div>
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">
