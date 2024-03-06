@@ -30,7 +30,11 @@ class LikesController extends Controller
             $post->likes()->create([
                 'user_id' => Auth::id(),
             ]);
-            Mail::to($post->user)->send(new PostLiked(Auth::user(), $post));
+//            dd($post->likes()->onlyTrashed()->where('user_id', Auth::id())->count());
+
+            if (!$post->likes()->onlyTrashed()->where('user_id', Auth::id())->count()) {
+                Mail::to($post->user)->send(new PostLiked(Auth::user(), $post));
+            }
             return back();
         }else{
             return back();

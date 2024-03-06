@@ -5,7 +5,7 @@
     <div class="flex justify-center">
 
         <div class="w-6/12 bg-white p-6 rounded-lg">
-
+            @auth()
             <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <label for="image" class="sr-only"  >Image : </label>
@@ -23,7 +23,7 @@
                 @enderror
                 <button type="submit" class="bg-slate-900 text-white px-6 py-2 rounded font-medium">Post</button>
             </form>
-
+            @endauth
             <div class="flex justify-center mt-8">
                 @if($posts->count())
                 <div class="w-8/12">
