@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/posts', [PostsController::class, 'index'])->name('posts');
-Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
+//Route::get('/posts', [PostsController::class, 'index'])->name('posts');
+//Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
 Route::get('/home', function (){
    return view('home');
 })->name('home');
@@ -33,3 +33,6 @@ Route::post('/register',[AuthController::class, 'registerStore'])->name('registe
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('posts', PostsController::class);
