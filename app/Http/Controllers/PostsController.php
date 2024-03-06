@@ -30,4 +30,9 @@ class PostsController extends Controller
             return back();
 
     }
+
+    public function show(Posts $post)
+    {
+        return view('posts.show', compact('post'));
+    }
 }

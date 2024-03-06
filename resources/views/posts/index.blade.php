@@ -28,7 +28,7 @@
                 @if($posts->count())
                 <div class="w-8/12">
                     @foreach($posts as $post)
-                       <x-post-card :post="$post"/>
+                        <a  href="{{route('posts.show', $post->id)}}"><x-post-card :post="$post"/></a>
                     @endforeach
                     {{$posts->links()}}
                 </div>

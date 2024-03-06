@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Postliked;
 use App\Models\likes;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class LikesController extends Controller
 {
@@ -18,18 +20,6 @@ class LikesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,35 +30,12 @@ class LikesController extends Controller
             $post->likes()->create([
                 'user_id' => Auth::id(),
             ]);
+            Mail::to($post->user)->send(new PostLiked(Auth::user(), $post));
             return back();
         }else{
             return back();
         };
 
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(likes $likes)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(likes $likes)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, likes $likes)
-    {
-        //
     }
 
     /**
