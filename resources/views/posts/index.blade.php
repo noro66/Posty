@@ -29,14 +29,24 @@
                 <div class="w-8/12">
                     @foreach($posts as $post)
                         <div class="mb-4">
-                            <div class="w-full mx-auto overflow-hidden bg-white rounded-lg shadow-lg flex flex-col items-center justify-center ">
-                                <img class="w-full h-auto" src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
-                                <div class="p-4">
-                                    <p class="mt-2 text-gray-600">{{ $post->body }}</p>
+                            <div class="w-full mx-auto overflow-hidden bg-white rounded-lg shadow-lg pl-4 ">
+                                <img class="w-64 h-1/2 " src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+                                <div class="mb-4">
+                                    <a href="#" class="font-extrabold">{{$post->user->name}} <span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span></a>
+                                    <p class="mt-2 font-sm">{{ $post->body }}</p>
+                                    <div class="flex items-center mt-2">
+                                        <form action="" method="post" class="mr-2">
+                                            <button type="submit" class="text-blue-500 bg-slate-900 px-4 py-0.5 rounded">Like</button>
+                                        </form>
+                                        <form action="" method="post" class="mr-1">
+                                            <button type="submit" class="text-red-500 bg-slate-900 px-3 py-0.5 rounded">UnLike</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
+                    {{$posts->links()}}
                 </div>
                 @else
                     <p class="text-center text-gray-500 text-2xl font-extrabold">There is NO Post</p>
