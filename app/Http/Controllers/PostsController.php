@@ -18,8 +18,7 @@ class PostsController extends Controller
     {
         $postForm = $request->validated();
         $postForm['image']  = $request->file('image')->store('postImages', 'public');
-        $postForm['user_id'] = Auth::id();
-        $postCreated =  Posts::create($postForm);
+        Auth::user()->posts()->create($postForm);
         return back();
     }
 }
