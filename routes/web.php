@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function (){
    return view('home');
 })->name('home');
+
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
+
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route::post('/logout',[AuthController::class, 'logout'])->name('logout');

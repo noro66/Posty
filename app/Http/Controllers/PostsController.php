@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts  = Posts::with('user', 'likes')->paginate(10);
+        $posts  = Posts::latest()->with('user', 'likes')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
@@ -21,5 +21,13 @@ class PostsController extends Controller
         $postForm['image']  = $request->file('image')->store('postImages', 'public');
         Auth::user()->posts()->create($postForm);
         return back();
+    }
+
+    public function destroy(Posts $post)
+    {
+        $this->authorize('delete', $post);
+            $post->delete();
+            return back();
+
     }
 }
