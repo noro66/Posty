@@ -35,12 +35,19 @@
                                     <a href="#" class="font-extrabold">{{$post->user->name}} <span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span></a>
                                     <p class="mt-2 font-sm">{{ $post->body }}</p>
                                     <div class="flex items-center mt-2">
-                                        <form action="" method="post" class="mr-2">
+                                        @if(!$post->likedBy(auth()->user()))
+                                        <form action="{{route('posts.likes',$post->id)}}" method="post" class="mr-2">
+                                            @csrf
                                             <button type="submit" class="text-blue-500 bg-slate-900 px-4 py-0.5 rounded">Like</button>
                                         </form>
-                                        <form action="" method="post" class="mr-1">
+                                        @else
+                                        <form action="{{route('posts.likes', $post->id)}}" method="post" class="mr-1">
+                                            @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="text-red-500 bg-slate-900 px-3 py-0.5 rounded">UnLike</button>
                                         </form>
+                                        @endif
+                                        <span>{{$post->likes->count()}} Likes </span>
                                     </div>
                                 </div>
                             </div>
