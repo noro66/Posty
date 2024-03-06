@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Posts::class);
     }
+
+    public function likeReseved()
+    {
+        return $this->hasManyThrough(Likes::class, Posts::class, 'user_id', 'post_id');
+    }
 }
