@@ -25,9 +25,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('update-post', function (User $user, Posts $post){
-            return $user->id  === $post->user_id ;
-        });
+        $this->registerPolicies();
+//        Gate::define('update-post', function (User $user, Posts $post){
+//            return $user->id  === $post->user_id ;
+//        });
 
     }
 }

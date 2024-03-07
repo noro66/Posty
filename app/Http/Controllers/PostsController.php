@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Posts;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PostsController extends Controller
 {
@@ -28,9 +30,12 @@ class PostsController extends Controller
         return back();
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function destroy(Posts $post)
     {
-        $this->authorize('delete', $post);
+        Gate::authorize('delete', $post);
             $post->delete();
             return back();
 
