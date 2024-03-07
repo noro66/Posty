@@ -10,7 +10,7 @@ class PostPolicy
     /**
      * Create a new policy instance.
      */
-    public function delete(User $user, Posts $post)
+    public function delete(User $user, Posts $post): bool
     {
         return $post->user_id === $user->id;
     }
